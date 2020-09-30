@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Nuevo producto</title>
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+	</head>
+	<body lang="es">
+		<form action="/crear_producto" method="POST">
+			<label for="nombre">
+				Nombre
+				<input type="text" name="nombre" required>
+			</label>
+			<label>
+				Unidades
+				<input type="number" name="unidades" min="0" step="1" required>
+			</label>
+			<label>
+				Peso
+				<input type="number" name="peso" min="0" step="any" required>
+			</label>
+			<label>
+				Volumen
+				<input type="number" name="volumen" min="0" step="any" required>
+			</label>
+			<label>
+				Precio
+				<input type="number" name="precio" min="0" step="any" required>
+			</label>
+			<label>
+				Periodo de caducidad
+				<input type="number" name="caducidad" min="0" step="1">
+			</label>
+			<label>
+				Tipo
+				<select name="tipo" required>
+					{% for tipo in tipos %}
+					<option>{{tipo}}</option>
+					{% endfor %}
+				</select>
+			</label>
+			<label>
+				Imagen
+				<input type="file" name="imagen" accept="image/*">
+			</label>
+			<button type="submit">Guardar</button>
+		</form>
+		<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+		<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+	</body>
+</html>
