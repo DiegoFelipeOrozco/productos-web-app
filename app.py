@@ -1,4 +1,4 @@
-from flask import Flask, request, render_template
+from flask import Flask, request, render_template, url_for
 import requests
 
 API_ADDRESS = 'http://127.0.0.1:5000'
@@ -13,7 +13,7 @@ def listarProductos():
 
 @app.route('/form_crear',methods=['GET'])
 def crearProducto():
-	return render_template('productoForm.html', tipos=TIPOS)
+	return render_template('productoForm.html', tipos=TIPOS, icono=url_for('static', filename='Evergreen.jpeg'))
 
 @app.route('/crear_producto',methods=['POST'])
 def guardarProducto():
@@ -35,7 +35,7 @@ def cleanDataResponse(responseDict):
 			producto["Periodo_caducidad"] = ''
 
 		if (producto["Imagen"] == None):
-			producto["Imagen"] = ''
+			producto["Imagen"] = 'https://luzevergreen.files.wordpress.com/2016/03/fondo.jpg?w=604&h=270&crop=1'
 	return responseDict
 
 if __name__=="__main__":

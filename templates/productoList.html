@@ -4,25 +4,25 @@
 		<title>Productos</title>
 		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
 		<style type="text/css">
-			body{
-				
-			}
-			.card.shadow:hover {
-				box-shadow: 0 0.5rem 1rem rgb(0 145 255 / 83%) !important;
+			.card:hover {
+				box-shadow: 0 0.5rem 2rem 20px #ffe400;
+    			border: 1px outset #edff00;
 			}
 		</style>
 	</head>
-	<body  lang="es" class="d-flex flex-wrap justify-content-center alert-success">
+	<body lang="es" class="d-flex flex-wrap justify-content-center" style="background-image: url(https://luzevergreen.files.wordpress.com/2016/03/fondo.jpg?w=604&h=270&crop=1);background-attachment: fixed;background-size: cover;">
 		{% for producto in productos %}
-		<div class="card col-md-3 p-0 mx-2 my-3 shadow">
-			<img src="{{producto['Imagen']}}" class="card-img-top">
+		<div class="card col-md-3 p-0 mx-2 my-3">
+			<img src="{{producto['Imagen']}}" class="card-img-top" class="vh-24">
 			<ul class="list-group list-group-flush">
 				<li class="list-group-item"><b>Nombre: </b>{{producto["Nombre"]}}</li>
 				<li class="list-group-item"><b>Cantidad: </b>{{producto["Unidades"]}}</li>
-				<li class="list-group-item"><b>Peso: </b>{{producto["Peso_unitario"]}}</li>
-				<li class="list-group-item"><b>Volumen: </b>{{producto["Volumen_unitario"]}}</li>
-				<li class="list-group-item"><b>Precio: </b>{{producto["Precio_unitario"]}}</li>
-				<li class="list-group-item"><b>Periodo de caducidad: </b>{{producto["Periodo_caducidad"]}}</li>
+				<li class="list-group-item"><b>Peso: </b>{{producto["Peso_unitario"]}} Kg</li>
+				<li class="list-group-item"><b>Volumen: </b>{{producto["Volumen_unitario"]}} m<sup>3</sup></li>
+				<li class="list-group-item"><b>Precio: </b>${{producto["Precio_unitario"]}}</li>
+				{% if producto["Periodo_caducidad"] %}
+				<li class="list-group-item"><b>Periodo de caducidad: </b>{{producto["Periodo_caducidad"]}} semanas</li>
+				{% endif%}
 				<li class="list-group-item"><b>Tipo: </b>{{producto["Tipo"]}}</li>
 			</ul>
 		</div>
